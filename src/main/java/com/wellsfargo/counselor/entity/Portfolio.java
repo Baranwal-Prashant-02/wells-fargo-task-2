@@ -9,25 +9,38 @@ public class Portfolio {
     @GeneratedValue()
     private long portfolioId;
 
+    @ManyToOne
+    private Client client;
+
     @Column(nullable = false)
-    private String portfolioName;
+    private String creationDate;
 
     protected Portfolio() {
+
     }
 
-    public Portfolio(String portfolioName) {
-        this.portfolioName = portfolioName;
+    public Portfolio(Client client, String creationDate) {
+        this.client = client;
+        this.creationDate = creationDate;
     }
 
-    public long getPortfolioId() {
+    public Long getPortfolioId() {
         return portfolioId;
     }
 
-    public String getPortfolioName() {
-        return portfolioName;
+    public Client getClient() {
+        return client;
     }
 
-    public void setPortfolioName(String portfolioName) {
-        this.portfolioName = portfolioName;
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public String getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(String creationDate) {
+        this.creationDate = creationDate;
     }
 }
